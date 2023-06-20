@@ -10,15 +10,18 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 
 
+
 export const Hero = (props) => {
 
     let textData;
   const [text, setText] = useState("");
 
-  const handleUpClick = (e) => {
+  const handleUpClick = () => {
     textData = text.toUpperCase();
     setText(textData);
   };
+
+  
 
   return (
     <div>
@@ -67,7 +70,16 @@ export const Hero = (props) => {
           Change to Upper Case
         </Button>
         <Button variant="primary mx-2 my-2" onClick={()=>{textData = text.toLowerCase(); setText(textData) }}>Change to Lower case</Button>
-        <Button variant="primary mx-2 my-2">Summarize</Button>
+
+
+
+        <h2>Your Text Summary Here :</h2>
+
+        <p>{text.split(" ").length} Words and {text.length} Characters</p>
+        <p>{0.008 * text.split("").length} minutes read</p>
+        <h2>Preview</h2>
+        <p>{text}</p>
+        
       </div>
     </div>
   );
